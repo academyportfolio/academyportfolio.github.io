@@ -14,18 +14,24 @@
 			}
 		</script><script>
 			console.log("reached jquery call")
-			$("document").keydown(function(e) {
-				// debug
-				console.log(e.which);
-				if(e.which == 37) {
-					 	// go back
-		    				window.history.go(-1); 
-		    				return false;
-				}
-				else if(e.which == 39) { // right
-					window.location="http://academy.michaelbailey.co/aboutme.html";
-				}
-			});
+			$(document).ready(function () {
+				$("body").keydown(function(e) {
+					if(e.which == 37) { // left 
+						$(".last page").trigger("click");
+					}	
+					else if(e.which == 39) { // right     
+						$(".next page").trigger("click");
+						
+					}
+				});
+    $(".last page").on("click",function(){
+        // your scripts for previous click here
+        window.location = 'http://www.google.com';  
+    });
+    $(".next page").on("click",function(){
+        window.location = 'http://academy.michaelbailey.co/aboutme.html';   
+    });
+});
 
 		</script>
 	</head>
